@@ -56,7 +56,11 @@
                 var delCssSelector = $.trim(options.deleteCssClass).replace(/\s+/g, '.'),
                     addCssSelector = $.trim(options.addCssClass).replace(/\s+/g, '.');
 
-                var delButtonHTML = '<a class="' + options.deleteCssClass + '" href="javascript:void(0)">' + options.deleteText +'</a>';
+                var delButtonHTML = `<a href="javascript:void(0)" class="remove my-auto ${options.deleteCssClass}">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5.99999 0C2.68501 0 0 2.68501 0 5.99999C0 9.31497 2.68501 12 5.99999 12C9.31496 12 12 9.31499 12 5.99999C12 2.68498 9.31499 0 5.99999 0ZM8.99999 8.15098L8.15098 8.99999L5.99999 6.849L3.84899 8.99999L2.99998 8.15098L5.15098 5.99999L2.99998 3.84899L3.84899 2.99998L5.99999 5.15098L8.15098 2.99998L8.99999 3.84899L6.84899 5.99999L8.99999 8.15098Z" fill="#949CA0"/>
+                                        </svg>
+                                    </a>`;
                 if (options.deleteContainerClass) {
                     // If we have a specific container for the remove button,
                     // place it as the last child of that container:
@@ -182,7 +186,12 @@
             // FIXME: Perhaps using $.data would be a better idea?
             options.formTemplate = template;
 
-            var addButtonHTML = '<a class="' + options.addCssClass + '" href="javascript:void(0)">' + options.addText + '</a>';
+            var addButtonHTML = `<a href="javascript:void(0);" class="fs-14 ${options.addCssClass}">
+                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.66671 5.66665H5.66671V9.66665H4.33337V5.66665H0.333374V4.33331H4.33337V0.333313H5.66671V4.33331H9.66671V5.66665Z" fill="#1078DB"/>
+                                    </svg>
+                                    ${options.addText}
+                                </a>`;
             if (options.addContainerClass) {
                 // If we have a specific container for the "add" button,
                 // place it as the last child of that container:
